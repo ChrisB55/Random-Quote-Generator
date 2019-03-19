@@ -22,27 +22,31 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div> 
-        
-        <div id="quote-box" className="post card">
-          <div id="text"> 
+      <div className="container"> 
+        <h1 className="row justify-content-center"> Random Quote Generator </h1>
+        <div id="quote-box" className="post card ">
+         
+          <div id="text" className="row justify-content-center"> 
             
           {this.state.text.map(item => (
             <ul key={item}>{item}</ul>
           ))}
         
           </div>  
-          <div id="author"> 
+          <div id="author" className="row justify-content-center"> -Author
           </div>
-          <div id="new-quote"> 
-          </div>  
-          <div id="tweet-quote"> Tweet quote
-          </div>  
+          <div id="new-quote" className="row justify-content-center">
+            <button type="button" className="btn btn-primary">New Quote</button>
+          </div> 
+          
+          <div id="tweet-quote" className="row justify-content-center" > 
+            <button type="button" className="btn btn-info">Tweet quote </button>
+          </div>
+          
         </div>
        </div>
       )
     
   }
 }
-
 export default App;

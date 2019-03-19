@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  background-color: lightgray;
+}
+
+#quote-box {
+  background-color: offwhite;
+}
