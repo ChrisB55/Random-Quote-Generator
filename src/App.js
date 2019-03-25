@@ -16,9 +16,17 @@ const quotes = [
 class App extends React.Component {
   constructor() {
      super()
+     this.state = {
+     id: quotes.id,
+     text: "First Quote",
+     author: "-Author"
+      
+    }
      this.handleClick = this.handleClick.bind(this)
   }
-   
+   componentDidMount() {
+     
+   }
    handleClick() {
      console.log("clicked")
    }
@@ -30,11 +38,14 @@ class App extends React.Component {
          <div id="quote-box" className="post card ">
           
            <div id="text" className="row justify-content-center"> 
-             <ul>
-               {quotes.map(q => <li key={q.id}>{q.text} <div id="author"> {q.author} </div></li>)}
-   </ul>
-           </div>  
-          
+            
+               {this.state.text} 
+             </div>  
+             <div id="author" className="row justify-content-center"> 
+               {this.state.author}</div>
+                
+           
+           <div> </div>
            <div id="new-quote" className="row justify-content-center">
              <button 
                onClick={this.handleClick}
@@ -53,3 +64,4 @@ class App extends React.Component {
    }
  }
 export default App;
+
