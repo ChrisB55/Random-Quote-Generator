@@ -3,14 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 const quotes = [
-  {text: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.”.',
+  {id:1,
+   text: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.”.',
   author: 'Dr. Suess'},
-  {text: 'Live in the sunshine, swim the sea, drink the wild air.',
+  {id:2,
+   text: 'Live in the sunshine, swim the sea, drink the wild air.',
   author: 'Ralph Waldo Emerson'},
-  {text: 'The successful warrior is the average man, with laser-like focus.',
+  {id:3,
+   text: 'The successful warrior is the average man, with laser-like focus.',
   author: 'Bruce Lee'}
+  
 ];
-
 
 
 class App extends React.Component {
@@ -18,8 +21,8 @@ class App extends React.Component {
      super()
      this.state = {
      id: quotes.id,
-     text: "First Quote",
-     author: "-Author"
+     text: quotes[0].text,
+     author: quotes[0].author
       
     }
      this.handleClick = this.handleClick.bind(this)
@@ -28,8 +31,14 @@ class App extends React.Component {
      
    }
    handleClick() {
-     console.log("clicked")
-   }
+
+   this.setState(prevState => {
+            return {
+                text: quotes[1].text,
+                author: quotes[1].author
+            }
+        })
+    }
    
    render() {
      return (
@@ -64,4 +73,3 @@ class App extends React.Component {
    }
  }
 export default App;
-
