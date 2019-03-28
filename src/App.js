@@ -22,38 +22,71 @@ class App extends React.Component {
      this.state = {
      id: quotes.id,
      text: quotes[0].text,
-     author: quotes[0].author
+     author: quotes[0].author,
+     quotesData: []
       
     }
-     this.handleClick = this.handleClick.bind(this)
+   this.handleClick = this.handleClick.bind(this)
   }
    componentDidMount() {
-     
-   }
-   handleClick() {
+     fetch('./data.json')
+     .then(response => response.json())
+     .then(result => {
+    const myQuotes = result.map(item => {
+      return item
+    })
+    
+    this.setState ({
+      quotesData: myQuotes
+    })
+    const randQuote = this.state.quotesData[ Math.floor(Math.random() * this.state.quotesData.length)]
+    console.log(randQuote)
+    this.setState ({
+      quotesData: randQuote
+    })
+  }) 
+  
+}
 
-   this.setState(prevState => {
-            return {
-                text: quotes[1].text,
-                author: quotes[1].author
-            }
-        })
-    }
+handleClick() {
+  fetch('./data.json')
+  .then(response => response.json())
+  .then(result => {
+ const myQuotes = result.map(item => {
+   return item
+ })
+ 
+ this.setState ({
+   quotesData: myQuotes
+ })
+ const randQuote = this.state.quotesData[ Math.floor(Math.random() * this.state.quotesData.length)]
+ console.log(randQuote)
+ this.setState ({
+   quotesData: randQuote
+ })
+}) 
+
+}
+
+   
+   
    
    render() {
+     
      return (
        <div className="container"> 
          <h1 className="row justify-content-center"> Random Quote Generator </h1>
          <div id="quote-box" className="post card ">
           
            <div id="text" className="row justify-content-center"> 
-            
-               {this.state.text} 
+           {this.state.quotesData.quoteText}
+              
              </div>  
              <div id="author" className="row justify-content-center"> 
-               {this.state.author}</div>
+                {this.state.quotesData.quoteAuthor}
+                </div>
                 
-           
+          
            <div> </div>
            <div id="new-quote" className="row justify-content-center">
              <button 
