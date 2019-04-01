@@ -52,6 +52,14 @@ class App extends React.Component {
       });
   }
   render() {
+    const tweetQuote =
+      "https://twitter.com/intent/tweet?" +
+      encodeURIComponent(
+        '"' +
+          this.state.quotesData.quoteText +
+          '" -' +
+          this.state.quotesData.quoteAuthor
+      );
     return (
       <div className="container">
         <h1 className="row justify-content-center"> Random Quote Generator </h1>
@@ -73,7 +81,9 @@ class App extends React.Component {
 
           <div id="tweet-quote" className="row justify-content-center">
             <button type="button" className="btn btn-info">
-              Tweet quote{" "}
+              <a href={tweetQuote} target="_blank">
+                Tweet my quote
+              </a>
             </button>
           </div>
         </div>
