@@ -70,8 +70,9 @@ class App extends React.Component {
           <div id="author" className="row justify-content-center">
             {this.state.quotesData.quoteAuthor}
           </div>
-          <div id="new-quote" className="row justify-content-center">
+          <div className="row justify-content-center">
             <button
+              id="new-quote"
               onClick={this.handleClick}
               type="button"
               className="btn btn-primary">
@@ -79,9 +80,9 @@ class App extends React.Component {
             </button>
           </div>
 
-          <div id="tweet-quote" className="row justify-content-center">
+          <div className="row justify-content-center">
             <button type="button" className="btn btn-info">
-              <a href={tweetQuote} target="_blank">
+              <a id="tweet-quote" href={tweetQuote} target="_blank">
                 Tweet my quote
               </a>
             </button>
