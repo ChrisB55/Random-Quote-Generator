@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -11,29 +11,29 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  /*
-   componentDidMount() {
-     fetch('./data.json')
-     .then(response => response.json())
-     .then(result => {
-    const myQuotes = result.map(item => {
-      return item
-    })
-    
-    this.setState ({
-      quotesData: myQuotes
-    })
-    const randQuote = this.state.quotesData[ Math.floor(Math.random() * this.state.quotesData.length)]
-    console.log(randQuote)
-    this.setState ({
-      quotesData: randQuote
-    })
-  }) 
-  
-}
-*/
+  componentDidMount() {
+    fetch('./data.json')
+      .then(response => response.json())
+      .then(result => {
+        const myQuotes = result.map(item => {
+          return item;
+        });
+
+        this.setState({
+          quotesData: myQuotes
+        });
+        const randQuote = this.state.quotesData[
+          Math.floor(Math.random() * this.state.quotesData.length)
+        ];
+        console.log(randQuote);
+        this.setState({
+          quotesData: randQuote
+        });
+      });
+  }
+
   handleClick() {
-    fetch("./data.json")
+    fetch('./data.json')
       .then(response => response.json())
       .then(result => {
         const myQuotes = result.map(item => {
@@ -53,7 +53,7 @@ class App extends React.Component {
   }
   render() {
     const tweetQuote =
-      "https://twitter.com/intent/tweet?" +
+      'https://twitter.com/intent/tweet?' +
       encodeURIComponent(
         '"' +
           this.state.quotesData.quoteText +
@@ -63,7 +63,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1 className="row justify-content-center"> Random Quote Generator </h1>
-        <div id="quote-box" className="post card ">
+
+        <div id="quote-box">
           <div id="text" className="row justify-content-center">
             {this.state.quotesData.quoteText}
           </div>
@@ -81,7 +82,7 @@ class App extends React.Component {
           </div>
 
           <div className="row justify-content-center">
-            <button type="button" className="btn btn-info">
+            <button id="tweet-button" type="button" className="btn btn-info">
               <a id="tweet-quote" href={tweetQuote} target="_blank">
                 Tweet my quote
               </a>
